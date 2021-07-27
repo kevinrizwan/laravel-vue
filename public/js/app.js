@@ -3240,31 +3240,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   },
@@ -3274,9 +3254,9 @@ __webpack_require__.r(__webpack_exports__);
         name: null,
         email: null,
         phone: null,
+        photo: null,
         sallery: null,
         address: null,
-        photo: null,
         nid: null,
         joining_date: null
       },
@@ -3305,9 +3285,9 @@ __webpack_require__.r(__webpack_exports__);
     employeeInsert: function employeeInsert() {
       var _this2 = this;
 
-      axios.post('/api/employee', this.form).then(function () {
+      axios.post("/api/employee", this.form).then(function () {
         _this2.$router.push({
-          name: 'employee'
+          name: "employee"
         });
 
         Notification.success();
@@ -3461,46 +3441,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = (_created$data$created = {
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   },
   data: function data() {
     return {
       form: {
-        name: '',
-        email: '',
-        phone: '',
-        sallery: '',
-        address: '',
-        photo: '',
-        newphoto: '',
-        nid: '',
-        joining_date: ''
+        name: "",
+        email: "",
+        phone: "",
+        photo: "",
+        sallery: "",
+        address: "",
+        newphoto: "",
+        nid: "",
+        joining_date: ""
       },
       errors: {}
     };
@@ -3509,10 +3469,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   var _this = this;
 
   var id = this.$route.params.id;
-  axios.get('/api/employee/' + id).then(function (_ref) {
+  axios.get("/api/employee/" + id).then(function (_ref) {
     var data = _ref.data;
     return _this.form = data;
-  })["catch"](console.log('error'));
+  })["catch"](console.log("error"));
 }), _defineProperty(_created$data$created, "methods", {
   onFileSelected: function onFileSelected(event) {
     var _this2 = this;
@@ -3535,9 +3495,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var _this3 = this;
 
     var id = this.$route.params.id;
-    axios.patch('/api/employee/' + id, this.form).then(function () {
+    axios.patch("/api/employee/" + id, this.form).then(function () {
       _this3.$router.push({
-        name: 'employee'
+        name: "employee"
       });
 
       Notification.success();
@@ -3627,18 +3587,36 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   },
   data: function data() {
     return {
       employees: [],
-      searchTerm: ''
+      searchTerm: ""
     };
   },
   computed: {
@@ -3654,7 +3632,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     allEmployee: function allEmployee() {
       var _this2 = this;
 
-      axios.get('/api/employee/').then(function (_ref) {
+      axios.get("/api/employee/").then(function (_ref) {
         var data = _ref.data;
         return _this2.employees = data;
       })["catch"]();
@@ -3663,25 +3641,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this3 = this;
 
       Swal.fire({
-        title: 'Are you sure?',
+        title: "Are you sure?",
         text: "You won't be able to revert this!",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
       }).then(function (result) {
         if (result.value) {
-          axios["delete"]('/api/employee/' + id).then(function () {
+          axios["delete"]("/api/employee/" + id).then(function () {
             _this3.employees = _this3.employees.filter(function (employee) {
               return employee.id != id;
             });
           })["catch"](function () {
             _this3.$router.push({
-              name: 'employee'
+              name: "employee"
             });
           });
-          Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
         }
       });
     }
@@ -11951,7 +11929,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#em_photo{\n  height: 40px;\n  width: 40px;\n}\n", ""]);
+exports.push([module.i, "\n#em_photo {\r\n  height: 40px;\r\n  width: 40px;\n}\r\n", ""]);
 
 // exports
 
@@ -52374,7 +52352,7 @@ var render = function() {
         _c(
           "router-link",
           { staticClass: "btn btn-primary", attrs: { to: "/employee" } },
-          [_vm._v("All Employee ")]
+          [_vm._v("List Pegawai")]
         )
       ],
       1
@@ -52405,6 +52383,15 @@ var render = function() {
                       _c("div", { staticClass: "form-group" }, [
                         _c("div", { staticClass: "form-row" }, [
                           _c("div", { staticClass: "col-md-6" }, [
+                            _c("img", {
+                              staticStyle: { height: "400px", width: "400px" },
+                              attrs: { src: _vm.form.photo }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-md-6" }, [
+                            _c("br"),
+                            _vm._v(" "),
                             _c("input", {
                               directives: [
                                 {
@@ -52418,7 +52405,7 @@ var render = function() {
                               attrs: {
                                 type: "text",
                                 id: "exampleInputFirstName",
-                                placeholder: "Enter Your Full Name"
+                                placeholder: "Masukkan Nama Anda"
                               },
                               domProps: { value: _vm.form.name },
                               on: {
@@ -52437,12 +52424,16 @@ var render = function() {
                             _vm._v(" "),
                             _vm.errors.name
                               ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(" " + _vm._s(_vm.errors.name[0]) + " ")
+                                  _vm._v(
+                                    "\n                          " +
+                                      _vm._s(_vm.errors.name[0]) +
+                                      "\n                        "
+                                  )
                                 ])
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" }, [
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("br"),
+                            _vm._v(" "),
                             _c("input", {
                               directives: [
                                 {
@@ -52456,7 +52447,7 @@ var render = function() {
                               attrs: {
                                 type: "email",
                                 id: "exampleInputFirstName",
-                                placeholder: "Enter Your Email"
+                                placeholder: "Masukkan Email Anda"
                               },
                               domProps: { value: _vm.form.email },
                               on: {
@@ -52476,143 +52467,15 @@ var render = function() {
                             _vm.errors.email
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.email[0]) + " "
+                                    "\n                          " +
+                                      _vm._s(_vm.errors.email[0]) +
+                                      "\n                        "
                                   )
                                 ])
-                              : _vm._e()
-                          ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("div", { staticClass: "form-row" }, [
-                          _c("div", { staticClass: "col-md-6" }, [
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.address,
-                                  expression: "form.address"
-                                }
-                              ],
-                              staticClass: "form-control",
-                              attrs: {
-                                type: "text",
-                                id: "exampleInputFirstName",
-                                placeholder: "Enter Your Address"
-                              },
-                              domProps: { value: _vm.form.address },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "address",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            }),
+                              : _vm._e(),
                             _vm._v(" "),
-                            _vm.errors.address
-                              ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(
-                                    " " + _vm._s(_vm.errors.address[0]) + " "
-                                  )
-                                ])
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" }, [
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.sallery,
-                                  expression: "form.sallery"
-                                }
-                              ],
-                              staticClass: "form-control",
-                              attrs: {
-                                type: "text",
-                                id: "exampleInputFirstName",
-                                placeholder: "Enter Your Sallery"
-                              },
-                              domProps: { value: _vm.form.sallery },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "sallery",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            }),
+                            _c("br"),
                             _vm._v(" "),
-                            _vm.errors.sallery
-                              ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(
-                                    " " + _vm._s(_vm.errors.sallery[0]) + " "
-                                  )
-                                ])
-                              : _vm._e()
-                          ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("div", { staticClass: "form-row" }, [
-                          _c("div", { staticClass: "col-md-6" }, [
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.joining_date,
-                                  expression: "form.joining_date"
-                                }
-                              ],
-                              staticClass: "form-control",
-                              attrs: {
-                                type: "date",
-                                id: "exampleInputFirstName",
-                                placeholder: "Enter Your Joining Date"
-                              },
-                              domProps: { value: _vm.form.joining_date },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "joining_date",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _vm.errors.joining_date
-                              ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(
-                                    " " +
-                                      _vm._s(_vm.errors.joining_date[0]) +
-                                      " "
-                                  )
-                                ])
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" }, [
                             _c("input", {
                               directives: [
                                 {
@@ -52626,7 +52489,7 @@ var render = function() {
                               attrs: {
                                 type: "text",
                                 id: "exampleInputFirstName",
-                                placeholder: "Enter Your Nid"
+                                placeholder: "Masukkan NIP/NIK Anda"
                               },
                               domProps: { value: _vm.form.nid },
                               on: {
@@ -52641,16 +52504,16 @@ var render = function() {
                             _vm._v(" "),
                             _vm.errors.nid
                               ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(" " + _vm._s(_vm.errors.nid[0]) + " ")
+                                  _vm._v(
+                                    "\n                          " +
+                                      _vm._s(_vm.errors.nid[0]) +
+                                      "\n                        "
+                                  )
                                 ])
-                              : _vm._e()
-                          ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("div", { staticClass: "form-row" }, [
-                          _c("div", { staticClass: "col-md-6" }, [
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("br"),
+                            _vm._v(" "),
                             _c("input", {
                               directives: [
                                 {
@@ -52664,7 +52527,7 @@ var render = function() {
                               attrs: {
                                 type: "text",
                                 id: "exampleInputFirstName",
-                                placeholder: "Enter Your phone Number"
+                                placeholder: "Masukkan No Telp Anda"
                               },
                               domProps: { value: _vm.form.phone },
                               on: {
@@ -52684,19 +52547,59 @@ var render = function() {
                             _vm.errors.phone
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.phone[0]) + " "
+                                    "\n                          " +
+                                      _vm._s(_vm.errors.phone[0]) +
+                                      "\n                        "
                                   )
                                 ])
-                              : _vm._e()
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("br"),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.joining_date,
+                                  expression: "form.joining_date"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "date",
+                                id: "exampleInputFirstName",
+                                placeholder: "Masukkan Tanggal Bergabung"
+                              },
+                              domProps: { value: _vm.form.joining_date },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "joining_date",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.joining_date
+                              ? _c("small", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                          " +
+                                      _vm._s(_vm.errors.joining_date[0]) +
+                                      "\n                        "
+                                  )
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("br")
                           ]),
                           _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("div", { staticClass: "form-row" }, [
-                          _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "col-md-5" }, [
                             _c("input", {
                               staticClass: "custom-file-input",
                               attrs: { type: "file", id: "customFile" },
@@ -52706,7 +52609,9 @@ var render = function() {
                             _vm.errors.photo
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.photo[0]) + " "
+                                    "\n                          " +
+                                      _vm._s(_vm.errors.photo[0]) +
+                                      "\n                        "
                                   )
                                 ])
                               : _vm._e(),
@@ -52717,15 +52622,8 @@ var render = function() {
                                 staticClass: "custom-file-label",
                                 attrs: { for: "customFile" }
                               },
-                              [_vm._v("Choose file")]
+                              [_vm._v("Pilih Foto")]
                             )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" }, [
-                            _c("img", {
-                              staticStyle: { height: "40px", width: "40px" },
-                              attrs: { src: _vm.form.photo }
-                            })
                           ])
                         ])
                       ]),
@@ -52755,7 +52653,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center" }, [
       _c("h1", { staticClass: "h4 text-gray-900 mb-4" }, [
-        _vm._v("Add Employee")
+        _vm._v("Tambah Pegawai")
       ])
     ])
   },
@@ -52767,7 +52665,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary btn-block", attrs: { type: "submit" } },
-        [_vm._v("Submit")]
+        [_vm._v("\n                      Submit\n                    ")]
       )
     ])
   }
@@ -52801,7 +52699,7 @@ var render = function() {
         _c(
           "router-link",
           { staticClass: "btn btn-primary", attrs: { to: "/employee" } },
-          [_vm._v("All Employee ")]
+          [_vm._v("List Pegawai\n    ")]
         )
       ],
       1
@@ -52832,6 +52730,15 @@ var render = function() {
                       _c("div", { staticClass: "form-group" }, [
                         _c("div", { staticClass: "form-row" }, [
                           _c("div", { staticClass: "col-md-6" }, [
+                            _c("img", {
+                              staticStyle: { height: "400px", width: "400px" },
+                              attrs: { src: "/" + _vm.form.photo }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-md-6" }, [
+                            _c("br"),
+                            _vm._v(" "),
                             _c("input", {
                               directives: [
                                 {
@@ -52845,7 +52752,7 @@ var render = function() {
                               attrs: {
                                 type: "text",
                                 id: "exampleInputFirstName",
-                                placeholder: "Enter Your Full Name"
+                                placeholder: "Masukkan Nama Anda"
                               },
                               domProps: { value: _vm.form.name },
                               on: {
@@ -52864,12 +52771,16 @@ var render = function() {
                             _vm._v(" "),
                             _vm.errors.name
                               ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(" " + _vm._s(_vm.errors.name[0]) + " ")
+                                  _vm._v(
+                                    "\n                          " +
+                                      _vm._s(_vm.errors.name[0]) +
+                                      "\n                        "
+                                  )
                                 ])
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" }, [
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("br"),
+                            _vm._v(" "),
                             _c("input", {
                               directives: [
                                 {
@@ -52883,7 +52794,7 @@ var render = function() {
                               attrs: {
                                 type: "email",
                                 id: "exampleInputFirstName",
-                                placeholder: "Enter Your Email"
+                                placeholder: "Masukkan Email Anda"
                               },
                               domProps: { value: _vm.form.email },
                               on: {
@@ -52903,143 +52814,15 @@ var render = function() {
                             _vm.errors.email
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.email[0]) + " "
+                                    "\n                          " +
+                                      _vm._s(_vm.errors.email[0]) +
+                                      "\n                        "
                                   )
                                 ])
-                              : _vm._e()
-                          ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("div", { staticClass: "form-row" }, [
-                          _c("div", { staticClass: "col-md-6" }, [
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.address,
-                                  expression: "form.address"
-                                }
-                              ],
-                              staticClass: "form-control",
-                              attrs: {
-                                type: "text",
-                                id: "exampleInputFirstName",
-                                placeholder: "Enter Your Address"
-                              },
-                              domProps: { value: _vm.form.address },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "address",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            }),
+                              : _vm._e(),
                             _vm._v(" "),
-                            _vm.errors.address
-                              ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(
-                                    " " + _vm._s(_vm.errors.address[0]) + " "
-                                  )
-                                ])
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" }, [
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.sallery,
-                                  expression: "form.sallery"
-                                }
-                              ],
-                              staticClass: "form-control",
-                              attrs: {
-                                type: "text",
-                                id: "exampleInputFirstName",
-                                placeholder: "Enter Your Sallery"
-                              },
-                              domProps: { value: _vm.form.sallery },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "sallery",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            }),
+                            _c("br"),
                             _vm._v(" "),
-                            _vm.errors.sallery
-                              ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(
-                                    " " + _vm._s(_vm.errors.sallery[0]) + " "
-                                  )
-                                ])
-                              : _vm._e()
-                          ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("div", { staticClass: "form-row" }, [
-                          _c("div", { staticClass: "col-md-6" }, [
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.joining_date,
-                                  expression: "form.joining_date"
-                                }
-                              ],
-                              staticClass: "form-control",
-                              attrs: {
-                                type: "date",
-                                id: "exampleInputFirstName",
-                                placeholder: "Enter Your Joining Date"
-                              },
-                              domProps: { value: _vm.form.joining_date },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "joining_date",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _vm.errors.joining_date
-                              ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(
-                                    " " +
-                                      _vm._s(_vm.errors.joining_date[0]) +
-                                      " "
-                                  )
-                                ])
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" }, [
                             _c("input", {
                               directives: [
                                 {
@@ -53053,7 +52836,7 @@ var render = function() {
                               attrs: {
                                 type: "text",
                                 id: "exampleInputFirstName",
-                                placeholder: "Enter Your Nid"
+                                placeholder: "Masukkan NIP/NIK Anda"
                               },
                               domProps: { value: _vm.form.nid },
                               on: {
@@ -53068,16 +52851,16 @@ var render = function() {
                             _vm._v(" "),
                             _vm.errors.nid
                               ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(" " + _vm._s(_vm.errors.nid[0]) + " ")
+                                  _vm._v(
+                                    "\n                          " +
+                                      _vm._s(_vm.errors.nid[0]) +
+                                      "\n                        "
+                                  )
                                 ])
-                              : _vm._e()
-                          ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("div", { staticClass: "form-row" }, [
-                          _c("div", { staticClass: "col-md-6" }, [
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("br"),
+                            _vm._v(" "),
                             _c("input", {
                               directives: [
                                 {
@@ -53091,7 +52874,7 @@ var render = function() {
                               attrs: {
                                 type: "text",
                                 id: "exampleInputFirstName",
-                                placeholder: "Enter Your phone Number"
+                                placeholder: "Masukkan No Telp Anda"
                               },
                               domProps: { value: _vm.form.phone },
                               on: {
@@ -53111,19 +52894,59 @@ var render = function() {
                             _vm.errors.phone
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.phone[0]) + " "
+                                    "\n                          " +
+                                      _vm._s(_vm.errors.phone[0]) +
+                                      "\n                        "
                                   )
                                 ])
-                              : _vm._e()
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("br"),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.joining_date,
+                                  expression: "form.joining_date"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "date",
+                                id: "exampleInputFirstName",
+                                placeholder: "Masukkan Tanggal Bergabung"
+                              },
+                              domProps: { value: _vm.form.joining_date },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "joining_date",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.joining_date
+                              ? _c("small", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                          " +
+                                      _vm._s(_vm.errors.joining_date[0]) +
+                                      "\n                        "
+                                  )
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("br")
                           ]),
                           _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("div", { staticClass: "form-row" }, [
-                          _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "col-md-5" }, [
                             _c("input", {
                               staticClass: "custom-file-input",
                               attrs: { type: "file", id: "customFile" },
@@ -53133,7 +52956,9 @@ var render = function() {
                             _vm.errors.photo
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.photo[0]) + " "
+                                    "\n                          " +
+                                      _vm._s(_vm.errors.photo[0]) +
+                                      "\n                        "
                                   )
                                 ])
                               : _vm._e(),
@@ -53144,15 +52969,8 @@ var render = function() {
                                 staticClass: "custom-file-label",
                                 attrs: { for: "customFile" }
                               },
-                              [_vm._v("Choose file")]
+                              [_vm._v("Pilih Foto")]
                             )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" }, [
-                            _c("img", {
-                              staticStyle: { height: "40px", width: "40px" },
-                              attrs: { src: _vm.form.photo }
-                            })
                           ])
                         ])
                       ]),
@@ -53182,7 +53000,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center" }, [
       _c("h1", { staticClass: "h4 text-gray-900 mb-4" }, [
-        _vm._v(" Employee Update")
+        _vm._v("Update Pegawai")
       ])
     ])
   },
@@ -53194,7 +53012,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary btn-block", attrs: { type: "submit" } },
-        [_vm._v("Update")]
+        [_vm._v("\n                      Update\n                    ")]
       )
     ])
   }
@@ -53228,7 +53046,7 @@ var render = function() {
         _c(
           "router-link",
           { staticClass: "btn btn-primary", attrs: { to: "/store-employee" } },
-          [_vm._v("Add Employee ")]
+          [_vm._v("Tambah Pegawai\n    ")]
         )
       ],
       1
@@ -53277,7 +53095,7 @@ var render = function() {
                   "tbody",
                   _vm._l(_vm.filtersearch, function(employee) {
                     return _c("tr", { key: employee.id }, [
-                      _c("td", [_vm._v(" " + _vm._s(employee.name) + " ")]),
+                      _c("td", [_vm._v(_vm._s(employee.name))]),
                       _vm._v(" "),
                       _c("td", [
                         _c("img", {
@@ -53287,7 +53105,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(employee.phone))]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(employee.sallery))]),
+                      _c("td", [_vm._v(_vm._s(employee.email))]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(employee.joining_date))]),
                       _vm._v(" "),
@@ -53320,7 +53138,7 @@ var render = function() {
                             },
                             [
                               _c("font", { attrs: { color: "#ffffff" } }, [
-                                _vm._v("Delete")
+                                _vm._v("Hapus")
                               ])
                             ],
                             1
@@ -53351,11 +53169,11 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "card-header py-3 d-flex flex-row align-items-center justify-content-between"
+          "\n            card-header\n            py-3\n            d-flex\n            flex-row\n            align-items-center\n            justify-content-between\n          "
       },
       [
         _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-          _vm._v("Employee List")
+          _vm._v("List Pegawai")
         ])
       ]
     )
@@ -53366,15 +53184,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "thead-light" }, [
       _c("tr", [
-        _c("th", [_vm._v("Name")]),
+        _c("th", [_vm._v("Nama")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Photo")]),
+        _c("th", [_vm._v("Foto")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Phone")]),
+        _c("th", [_vm._v("No. Hp")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Sallery")]),
+        _c("th", [_vm._v("E-mail")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Joining Date")]),
+        _c("th", [_vm._v("Tanggal Bergabung")]),
         _vm._v(" "),
         _c("th", [_vm._v("Action")])
       ])
@@ -77849,8 +77667,8 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\pro6\inventory\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\pro6\inventory\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\laravel-vue\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\laravel-vue\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

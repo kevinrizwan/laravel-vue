@@ -20,7 +20,6 @@ class CreateExtraTable extends Migration
             $table->string('favicon')->nullable();
             $table->string('phone');
             $table->string('email');
-            $table->string('address');
             $table->timestamps();
         });
     }
