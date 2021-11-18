@@ -14,7 +14,7 @@
               <div class="col-lg-12">
                 <div class="login-form">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Update Pegawai</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Ubah Pegawai</h1>
                   </div>
 
                   <form
@@ -141,8 +141,6 @@ export default {
         email: "",
         phone: "",
         photo: "",
-        sallery: "",
-        address: "",
         newphoto: "",
         nid: "",
         joining_date: "",

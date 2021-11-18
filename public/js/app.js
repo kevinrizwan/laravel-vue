@@ -3255,8 +3255,6 @@ __webpack_require__.r(__webpack_exports__);
         email: null,
         phone: null,
         photo: null,
-        sallery: null,
-        address: null,
         nid: null,
         joining_date: null
       },
@@ -3456,8 +3454,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         email: "",
         phone: "",
         photo: "",
-        sallery: "",
-        address: "",
         newphoto: "",
         nid: "",
         joining_date: ""
@@ -53000,7 +52996,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center" }, [
       _c("h1", { staticClass: "h4 text-gray-900 mb-4" }, [
-        _vm._v("Update Pegawai")
+        _vm._v("Ubah Pegawai")
       ])
     ])
   },

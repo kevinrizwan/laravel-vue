@@ -13,7 +13,6 @@ Route::group([
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
-
 });
 
 Route::apiResource('/employee', 'Api\EmployeeController');
@@ -22,6 +21,10 @@ Route::apiResource('/category', 'Api\CategoryController');
 Route::apiResource('/product', 'Api\ProductController');
 Route::apiResource('/expense', 'Api\ExpenseController');
 Route::apiResource('/customer', 'Api\CustomerController');
+
+Route::Post('/store-employee', 'Api\EmployeeController@store');
+Route::Post('/edit-employee/{id}', 'Api\EmployeeController@update');
+Route::Post('/hapus-employe/{id}', 'Api\EmployeeController@destroy');
 
 Route::Post('/salary/paid/{id}', 'Api\SalaryController@Paid');
 Route::Get('/salary', 'Api\SalaryController@AllSalary');

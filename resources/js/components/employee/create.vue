@@ -140,8 +140,6 @@ export default {
         email: null,
         phone: null,
         photo: null,
-        sallery: null,
-        address: null,
         nid: null,
         joining_date: null,
       },
